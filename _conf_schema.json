@@ -2,7 +2,7 @@
   "target_groups": {
     "description": "需要推送60s新闻的群组唯一标识符列表",
     "type": "list",
-    "hint": "填写需要接收60s新闻推送的群组唯一标识符，如: 你的平台名称:GroupMessage:1350989414, napcat:FriendMessage:123456, telegram:FriendMessage:123456",
+    "hint": "填写需要接收60s新闻推送的群组唯一标识符，如: 你的平台名称(自己起的):GroupMessage:1350989414, napcat:FriendMessage:123456, telegram:FriendMessage:123456",
     "default": ["这里填你的平台名称:GroupMessage:这里填写你的群号"]
   },
   "push_time": {
