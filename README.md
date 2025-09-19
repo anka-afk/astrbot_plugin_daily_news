@@ -49,8 +49,8 @@
   "target_groups": {
     "description": "需要推送60s新闻的群组唯一标识符列表",
     "type": "list",
-    "hint": "填写需要接收60s新闻推送的群组唯一标识符，如: aiocqhttp:GroupMessage:1350989414, telegram:FriendMessage:123456",
-    "default": ["aiocqhttp:GroupMessage:这里填写你的群号"]
+    "hint": "填写需要接收60s新闻推送的群组唯一标识符，如: 你的平台名称(自己起的):GroupMessage:1350989414, napcat:FriendMessage:123456, telegram:FriendMessage:123456",
+    "default": ["这里填你的平台名字:GroupMessage:这里填写你的群号"]
   },
   "push_time": {
     "description": "推送时间(以服务器时区为准)",
@@ -68,7 +68,7 @@
     "description": "是否使用本地图片绘制",
     "type": "bool",
     "hint": "是否使用本地图片绘制，为否则使用api获取图片",
-    "default": true
+    "default": false
   }
 }
 ```
