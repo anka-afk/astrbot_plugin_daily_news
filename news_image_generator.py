@@ -147,7 +147,7 @@ def create_news_image_from_data(news_api_data: Dict[str, Any], logger) -> Option
             year_str = news_date.strftime("%Y年")
             month_str = news_date.strftime("%m月")
             day_str = news_date.strftime("%d日")
-            day_of_week = news_date.strftime("%a")
+            day_of_week = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][news_date.weekday()]
         except ValueError as e:
             logger.error(f"[新闻图片生成] 日期格式错误: {e}")
             return None
