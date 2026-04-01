@@ -33,6 +33,7 @@
 - 🎯 支持多群组推送
 - 📱 同时支持图片与文字模式
 - 🌐 数据源可靠稳定
+- 📸 支持自动上传图片到QQ群相册（需OneBot实现支持）
 
 # 💡 常见问题
 
@@ -69,6 +70,24 @@
     "type": "bool",
     "hint": "是否使用本地图片绘制，为否则使用api获取图片",
     "default": false
+  },
+  "enable_group_album_upload": {
+    "description": "启用群相册上传（仅QQ平台）",
+    "type": "bool",
+    "hint": "新闻图片发送后自动上传到群相册。需要OneBot实现（如NapCat）支持群相册API",
+    "default": false
+  },
+  "group_album_name": {
+    "description": "目标群相册名称",
+    "type": "string",
+    "hint": "上传到群相册中的目标相册名称。留空则上传到默认相册。如果指定的相册不存在，插件将尝试自动创建",
+    "default": "每日新闻"
+  },
+  "group_album_strict_mode": {
+    "description": "群相册严格模式",
+    "type": "bool",
+    "hint": "开启后，当指定了相册名称但找不到对应相册时将直接终止上传，不会创建新相册或上传到默认相册",
+    "default": false
   }
 }
 ```
@@ -82,6 +101,9 @@
 | push_time | string | "08:00" | 推送时间(以服务器时区为准) |
 | show_text_news | bool | false | 是否显示文字新闻，默认隐藏 |
 | use_local_image_draw | bool | true | 是否使用本地图片绘制，为否则使用 api 获取图片 |
+| enable_group_album_upload | bool | false | 启用群相册上传（仅QQ平台） |
+| group_album_name | string | "每日新闻" | 目标群相册名称 |
+| group_album_strict_mode | bool | false | 群相册严格模式 |
 
 群聊唯一标识符分为: 前缀:中缀:后缀
 
@@ -184,6 +206,10 @@ AstrBot 4.0 及以前:
   - ✅ 新增备用API域名
   - ✅ 新增用户手动获取新闻的指令
   - ✅ 修复插件卸载或停用时未销毁定时器的问题
+- v2.2.0
+  - ✅ 新增群相册上传功能（支持手动获取和定时推送）
+  - ✅ 支持自定义相册名称和严格模式
+  - ✅ 优化bot实例获取机制，确保定时推送时也能上传相册
 
 ## 💡 使用提示
 
@@ -192,6 +218,8 @@ AstrBot 4.0 及以前:
 3. 使用 `/news_status` 命令可随时查看插件运行状态和下次推送时间
 4. 如遇特殊情况需要立即全局推送新闻，可使用 `/push_news` 命令手动触发
 5. 如用户想自行获取新闻，可使用 `/get_news` 命令手动获取
+6. 群相册上传功能需要 OneBot 实现（如 NapCat、Lagrange 等）支持群相册 API，默认关闭
+7. 开启群相册上传后，建议先手动测试相册名称是否正确，避免上传到错误的相册
 
 ## 👥 贡献指南
 
